@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UX Iconix — Nueva Partida | Importadora MC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: #d4d9de;
+    font-family: 'Barlow', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── FRAME ── */
+  .email-frame {
+    padding: 32px 0 48px;
+  }
+
+  .email-wrapper {
+    width: 600px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+  }
+
+  /* ── TOP BAR ── */
+  .top-bar {
+    background-color: #ffffff;
+    padding: 14px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 3px solid #15ace8;
+  }
+
+  .logo-lock {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-lock img {
+    height: 45px;
+    display: block;
+  }
+
+  .top-bar-meta {
+    font-family: 'Barlow', Arial, sans-serif;
+    font-size: 10px;
+    color: #5d5e5f;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: right;
+    line-height: 1.5;
+    font-weight: 700;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background-color: #0b2233;
+    min-height: 300px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: stretch;
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: -60px; left: -60px;
+    width: 380px; height: 380px;
+    background: radial-gradient(circle, rgba(21,172,232,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-glow-right {
+    position: absolute;
+    bottom: -40px; right: -20px;
+    width: 260px; height: 260px;
+    background: radial-gradient(circle, rgba(21,172,232,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-left {
+    width: 54%;
+    padding: 12px 0 0 0;
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-left img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 8px 24px rgba(0,0,0,0.55));
+  }
+
+  .hero-right {
+    width: 46%;
+    padding: 32px 24px 30px 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Barlow', Arial, sans-serif;
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #15ace8;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .hero-eyebrow-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background-color: #15ace8;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  .hero-headline {
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 0.90;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 14px;
+  }
+
+  .hero-headline .accent {
+    color: #15ace8;
+    display: block;
+  }
+
+  .hero-subline {
+    font-family: 'Barlow', Arial, sans-serif;
+    font-size: 11.5px;
+    font-weight: 400;
+    color: #7a9bb0;
+    margin-bottom: 22px;
+    line-height: 1.6;
+    padding-top: 4px;
+    border-top: 1px solid rgba(21,172,232,0.25);
+  }
+
+  .hero-subline strong {
+    color: #D8D8D8;
+    font-weight: 600;
+  }
+
+  .hero-btn {
+    display: inline-block;
+    background-color: #15ace8;
+    color: #ffffff;
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 10px 18px;
+    text-decoration: none;
+    align-self: flex-start;
+  }
+
+  /* ── SOLD-OUT BAND ── */
+  .sold-band {
+    background-color: #15ace8;
+    padding: 11px 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .sold-badge {
+    background-color: #0b2233;
+    color: #15ace8;
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 5px 11px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .sold-text {
+    font-family: 'Barlow', Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: #0b2233;
+    line-height: 1.4;
+  }
+
+  .sold-text strong { font-weight: 800; }
+
+  /* ── VIDEO TEASER ── */
+  .video-section {
+    background-color: #0b2233;
+    padding: 40px;
+    text-align: center;
+    border-bottom: 1px solid #122436;
+  }
+
+  .video-container {
+    position: relative;
+    max-width: 500px;
+    margin: 15px auto 0;
+    display: block;
+    text-decoration: none;
+  }
+
+  .video-container img {
+    width: 100%;
+    border-radius: 8px;
+    border: 2px solid #15ace8;
+    opacity: 0.85;
+    transition: opacity 0.3s;
+  }
+
+  .video-container:hover img {
+    opacity: 1;
+  }
+
+  .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #15ace8;
+    color: #fff;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  }
+
+  .play-button span {
+    font-size: 30px;
+    margin-left: 6px;
+    margin-top: 2px;
+  }
+
+  /* ── INTRO SECTION ── */
+  .intro-section {
+    background-color: #fafdfd;
+    padding: 34px 40px 28px;
+    border-bottom: 2px solid #D8D8D8;
+  }
+
+  .section-eyebrow {
+    font-family: 'Barlow', Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #15ace8;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.1;
+    color: #0b2233;
+    margin-bottom: 14px;
+  }
+
+  .intro-body {
+    font-family: 'Barlow', Arial, sans-serif;
+    font-size: 13.5px;
+    line-height: 1.72;
+    color: #5d5e5f;
+  }
+
+  .intro-body p + p { margin-top: 12px; }
+
+  .intro-body strong { color: #0b2233; font-weight: 700; }
+
+  /* ── BENEFITS SECTION ── */
+  .benefits-section {
+    padding: 30px 28px 28px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #D8D8D8;
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 20px;
+  }
+
+  .benefit-card {
+    background-color: #fafdfd;
+    border: 1px solid #D8D8D8;
+    border-left: 3px solid #15ace8;
+    padding: 18px 18px 16px;
+  }
+
+  .benefit-num {
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-weight: 800;
+    font-size: 38px;
+    color: #15ace8;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1px;
+  }
+
+  .benefit-unit {
+    font-family: 'Barlow', Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: #15ace8;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .benefit-title {
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #0b2233;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .benefit-desc {
+    font-family: 'Barlow', Arial, sans-serif;
+    font-size: 12px;
+    line-height: 1.6;
+    color: #5d5e5f;
+  }
+
+  .benefit-icon-label {
+    display: inline-block;
+    background-color: #0b2233;
+    color: #15ace8;
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    padding: 4px 10px;
+    margin-bottom: 6px;
+  }
+
+  /* ── PRODUCT GALLERY ── */
+  .gallery-section {
+    background-color: #0b2233;
+    padding: 24px 0 0;
+    overflow: hidden;
+  }
+
+  .gallery-header {
+    padding: 0 28px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .gallery-label {
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #15ace8;
+  }
+
+  .gallery-model {
+    font-family: 'Barlow', Arial, sans-serif;
+    font-size: 11px;
+    color: #5d5e5f;
+    letter-spacing: 0.06em;
+  }
+
+  .gallery-imgs {
+    display: flex;
+  }
+
+  .gallery-imgs img {
+    width: 50%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 4px 16px rgba(0,0,0,0.4));
+  }
+
+  /* ── SPECS TABLE ── */
+  .specs-section {
+    padding: 30px 40px 28px;
+    background-color: #f4f7f9;
+    border-top: 1px solid #D8D8D8;
+    border-bottom: 1px solid #D8D8D8;
+  }
+
+  .specs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 18px;
+    font-family: 'Barlow', Arial, sans-serif;
+    font-size: 12.5px;
+  }
+
+  .specs-table tr { border-bottom: 1px solid #D8D8D8; }
+  .specs-table tr:last-child { border-bottom: none; }
+
+  .specs-table tr:nth-child(even) td { background-color: #eaeff3; }
+
+  .specs-table td {
+    padding: 9px 12px;
+    color: #5d5e5f;
+    vertical-align: middle;
+  }
+
+  .specs-table td:first-child {
+    font-weight: 600;
+    color: #0b2233;
+    width: 52%;
+    border-right: 2px solid #15ace8;
+  }
+
+  .specs-note {
+    font-family: 'Barlow', Arial, sans-serif;
+    font-size: 11px;
+    color: #9aabb5;
+    margin-top: 12px;
+    line-height: 1.5;
+  }
+
+  /* ── CTA SECTION ── */
+  .cta-section {
+    background-color: #0b2233;
+    padding: 38px 40px 36px;
+    text-align: center;
+    border-top: 3px solid #15ace8;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-bg-circle {
+    position: absolute;
+    top: -80px; left: 50%;
+    transform: translateX(-50%);
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(21,172,232,0.10) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-eyebrow {
+    font-family: 'Barlow', Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #15ace8;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    position: relative;
+  }
+
+  .cta-eyebrow::before,
+  .cta-eyebrow::after {
+    content: '';
+    flex: 1;
+    max-width: 60px;
+    height: 1px;
+    background-color: rgba(21,172,232,0.35);
+  }
+
+  .cta-headline {
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 1.0;
+    color: #ffffff;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    position: relative;
+  }
+
+  .cta-sub {
+    font-family: 'Barlow', Arial, sans-serif;
+    font-size: 13px;
+    color: #7a9bb0;
+    line-height: 1.65;
+    margin-bottom: 28px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+
+  .cta-sub strong { color: #D8D8D8; font-weight: 600; }
+
+  .cta-btn-wrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .cta-btn-primary {
+    display: inline-block;
+    background-color: #15ace8;
+    color: #ffffff;
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 15px 38px;
+    text-decoration: none;
+  }
+
+  .cta-divider {
+    font-family: 'Barlow', Arial, sans-serif;
+    font-size: 11px;
+    color: #3a5568;
+    letter-spacing: 0.08em;
+  }
+
+  .cta-btn-secondary {
+    display: inline-block;
+    border: 1px solid rgba(21,172,232,0.4);
+    color: #15ace8;
+    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 11px 28px;
+    text-decoration: none;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background-color: #071824;
+    padding: 20px 40px;
+    text-align: center;
+    border-top: 1px solid #122436;
+  }
+
+  .footer-logo {
+    margin-bottom: 12px;
+  }
+
+  .footer-logo img {
+    height: 30px;
+    filter: brightness(0) invert(1);
+    opacity: 0.8;
+  }
+
+  .footer-links {
+    font-family: 'Barlow', Arial, sans-serif;
+    font-size: 11px;
+    color: #3a5568;
+    margin-bottom: 8px;
+  }
+
+  .footer-links a {
+    color: #5d7d90;
+    text-decoration: none;
+    margin: 0 7px;
+  }
+
+  .footer-legal {
+    font-family: 'Barlow', Arial, sans-serif;
+    font-size: 10px;
+    color: #2a3d4a;
+    line-height: 1.6;
+  }
+
+  .footer-legal a { color: #3a5568; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<!-- Pre-header: primera línea visible en clientes de email antes de abrir -->
+<div style="display:none;font-size:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;color:#fafdfd;">
+  Asegura el flujo de caja: El rifle PCP de mayor rotación regresa. Excelente ROI y demanda garantizada.
+</div>
+
+<div class="email-frame">
+<div class="email-wrapper">
+
+  <!-- ══ TOP BAR ══ -->
+  <div class="top-bar">
+    <div class="logo-lock">
+      <img src="../IMPORTADORA-HORIZONTAL-1-1024x360.png" alt="Importadora MC">
+    </div>
+    <div class="top-bar-meta">
+      Socios<br>B2B Oficiales
+    </div>
+  </div>
+
+  <!-- ══ HERO ══ -->
+  <div class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-glow-right"></div>
+
+    <div class="hero-left">
+      <img
+        src="https://ik.imagekit.io/ztc9bh2wdx/images/2.4320_product_image_perspective.png?tr=n-ux_tn_w750_v00"
+        alt="Rifle PCP UX Iconix — vista en perspectiva"
+      />
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-dot"></span>
+        NUEVA PARTIDA CONFIRMADA
+      </div>
+      <div class="hero-headline">
+        ACELERA LA<br>
+        <span class="accent">ROTACIÓN</span>
+        DE TU<br>
+        INVENTARIO
+      </div>
+      <div class="hero-subline">
+        <strong>UX Iconix · Rifle PCP</strong><br>
+        Umarex · Product-Market Fit Probado
+      </div>
+      <a href="#cotizar" class="hero-btn">RESERVAR STOCK →</a>
+    </div>
+  </div>
+
+  <!-- ══ SOLD-OUT BAND ══ -->
+  <div class="sold-band">
+    <div class="sold-badge">▲&nbsp;FAST&nbsp;SELLER</div>
+    <div class="sold-text">
+      <strong>Agotado en semanas</strong> en su primera importación ·
+      La nueva partida asegura ventas garantizadas
+    </div>
+  </div>
+
+  <!-- ══ VIDEO TEASER ══ -->
+  <div class="video-section">
+    <span class="section-eyebrow" style="color: #15ace8; margin-bottom: 10px; display: block;">— Material Promocional</span>
+    <div class="section-title" style="color: #ffffff; font-size: 26px; font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase;">VEA EL TEASER OFICIAL EN ACCIÓN</div>
+    <a href="../Teaser Iconix PPC.mp4" target="_blank" class="video-container">
+      <img src="https://ik.imagekit.io/ztc9bh2wdx/images/2.4320_A_product_image_detail.png?tr=n-ux_tn_w750_v00" alt="Video Teaser UX Iconix">
+      <div class="play-button">
+         <span>▶</span>
+      </div>
+    </a>
+    <p style="color: #7a9bb0; font-family: 'Barlow', sans-serif; font-size: 12px; margin-top: 15px;">Haga clic en la imagen para reproducir el archivo <strong>Teaser Iconix PPC.mp4</strong> adjunto.</p>
+  </div>
+
+  <!-- ══ INTRO ══ -->
+  <div class="intro-section">
+    <span class="section-eyebrow">— La oportunidad comercial de la temporada</span>
+    <div class="section-title">Rentabilidad asegurada. Un modelo que vende solo.</div>
+    <div class="intro-body">
+      <p>
+        El UX Iconix eliminó la fricción de entrada al mundo de los rifles PCP. Sus clientes buscan 
+        prestaciones premium sin gastar de más. Al ofrecer este modelo, usted asegura <strong>ventas de alto volumen 
+        con excelente margen comercial (ROI)</strong>.
+      </p>
+      <p>
+        Hoy, con una nueva importación próxima a atracar, usted tiene la oportunidad estratégica de
+        incorporarlo a su pipeline de ventas antes de que sus competidores agoten el inventario en aduanas.
+        Fidelice a sus clientes recreativos y fomente el <em>cross-selling</em> de accesorios.
+      </p>
+    </div>
+  </div>
+
+  <!-- ══ BENEFITS ══ -->
+  <div class="benefits-section">
+    <span class="section-eyebrow">— Argumentos B2B</span>
+    <div class="section-title">Las especificaciones que cierran ventas.</div>
+
+    <div class="benefits-grid">
+
+      <div class="benefit-card">
+        <div class="benefit-num">120</div>
+        <span class="benefit-unit">disparos por recarga</span>
+        <div class="benefit-title">Autonomía superior</div>
+        <div class="benefit-desc">Cilindro integrado de acero de 100 cc. Un *Selling Point* contundente frente a los sistemas de CO₂ tradicionales.</div>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-num">10</div>
+        <span class="benefit-unit">rondas · cargador rotativo</span>
+        <div class="benefit-title">Cadencia de disparo</div>
+        <div class="benefit-desc">Palanca de armado ergonómica. La sensación de tiro fluida garantiza la recomendación boca a boca entre usuarios.</div>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-icon-label">PICATINNY</div>
+        <span class="benefit-unit">riel incluido de fábrica</span>
+        <div class="benefit-title">Oportunidad Cross-Sell</div>
+        <div class="benefit-desc">La inclusión del riel es la oportunidad perfecta para que usted agregue visores ópticos y aumente el <em>ticket promedio</em>.</div>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-num">2.2</div>
+        <span class="benefit-unit">kilogramos de peso total</span>
+        <div class="benefit-title">Diseño Ultraligero</div>
+        <div class="benefit-desc">Su chasis de polímero derriba la barrera del peso, haciéndolo atractivo para un público demográfico mucho más amplio.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ PRODUCT GALLERY ══ -->
+  <div class="gallery-section">
+    <div class="gallery-header">
+      <span class="gallery-label">— Vista del producto</span>
+      <span class="gallery-model">UX Iconix · Modelo 2.4320 · Umarex</span>
+    </div>
+    <div class="gallery-imgs">
+      <img
+        src="https://ik.imagekit.io/ztc9bh2wdx/images/2.4320_product_image_left.png?tr=n-ux_tn_w750_v00"
+        alt="UX Iconix — vista lateral"
+      />
+      <img
+        src="https://ik.imagekit.io/ztc9bh2wdx/images/2.4320_product_image_scope_of_delivery.png?tr=n-ux_tn_w750_v00"
+        alt="UX Iconix — contenido del paquete"
+      />
+    </div>
+  </div>
+
+  <!-- ══ SPECS TABLE ══ -->
+  <div class="specs-section">
+    <span class="section-eyebrow">— Ficha de Producto</span>
+    <div class="section-title">El respaldo de ingeniería que asegura garantías cero.</div>
+
+    <table class="specs-table">
+      <tr><td>Calibre</td><td>4.5 mm (.177) Pellet</td></tr>
+      <tr><td>Sistema de propulsión</td><td>PCP (Pre-Charged Pneumatic)</td></tr>
+      <tr><td>Velocidad inicial (V₀)</td><td>170 m/s — 558 fps</td></tr>
+      <tr><td>Energía (E₀)</td><td>&lt; 7.5 J (modelo base — hasta 40 J según variante)</td></tr>
+      <tr><td>Capacidad del cargador</td><td>10 pellets — sistema rotatorio</td></tr>
+      <tr><td>Disparos por recarga</td><td>120 disparos</td></tr>
+      <tr><td>Presión de trabajo</td><td>137 bar / 2.000 psi</td></tr>
+      <tr><td>Longitud del cañón</td><td>510 mm — cañón estriado (rayado)</td></tr>
+      <tr><td>Longitud total</td><td>1.018 mm</td></tr>
+      <tr><td>Peso</td><td>2.200 g</td></tr>
+      <tr><td>Rosca boca de cañón</td><td>1/2"-20 UNF (compatible con silenciador)</td></tr>
+      <tr><td>Culata</td><td>Polímero ergonómico — superficies texturizadas</td></tr>
+      <tr><td>Seguridad</td><td>Seguro deslizante integrado</td></tr>
+      <tr><td>Incluye</td><td>Manómetro · Adaptador de carga · Bandeja tiro individual</td></tr>
+    </table>
+
+    <div class="specs-note">
+      * Información comercial B2B. Energía y velocidad corresponden al modelo base 2.4320 (7.5 J). 
+      El soporte y las garantías están respaldadas al 100% por Importadora MC.
+    </div>
+  </div>
+
+  <!-- ══ CTA SECTION ══ -->
+  <div class="cta-section" id="cotizar">
+    <div class="cta-bg-circle"></div>
+
+    <div class="cta-eyebrow">disponibilidad limitada</div>
+    <div class="cta-headline">
+      NO PIERDA SU<br>
+      FLUJO DE CAJA<br>
+      POR FALTA DE STOCK
+    </div>
+    <div class="cta-sub">
+      Asegure sus márgenes de ganancia. Contáctenos hoy para conocer nuestras políticas de precios por volumen 
+      y reservar su cupo en la <strong>nueva partida del UX Iconix</strong>.
+    </div>
+
+    <div class="cta-btn-wrap">
+      <a href="mailto:ventas@importadoramc.cl" class="cta-btn-primary">
+        SOLICITAR COTIZACIÓN B2B →
+      </a>
+      <span class="cta-divider">— o coordine directo con su ejecutivo —</span>
+      <a href="https://wa.me/56900000000" class="cta-btn-secondary">
+        HABLAR POR WHATSAPP
+      </a>
+    </div>
+  </div>
+
+  <!-- ══ FOOTER ══ -->
+  <div class="footer">
+    <div class="footer-logo">
+        <img src="../IMPORTADORA-HORIZONTAL-1-1024x360.png" alt="Importadora MC">
+    </div>
+    <div class="footer-links">
+      <a href="#">Portal de Distribuidores</a>
+      <a href="#">Órdenes B2B</a>
+      <a href="#">Soporte</a>
+      <a href="#">Cancelar suscripción</a>
+    </div>
+    <div class="footer-legal">
+      © 2026 Importadora MC · Liderando la distribución especializada · Chile<br>
+      Este es un correo puramente transaccional y comercial dirigido a nuestros partners B2B.<br>
+      Para no recibir más comunicaciones estratégicas, <a href="#">haga clic aquí</a>.
+    </div>
+  </div>
+
+</div><!-- /email-wrapper -->
+</div><!-- /email-frame -->
+
+</body>
+</html>

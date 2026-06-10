@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio: Prueba Marketing B2B - Importadora MC</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f9;
+            font-family: 'Barlow', Arial, sans-serif;
+            color: #0b2233;
+        }
+        .header {
+            background-color: #0b2233;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 4px solid #15ace8;
+        }
+        .header img {
+            height: 50px;
+            margin-bottom: 15px;
+        }
+        .header h1 {
+            color: #ffffff;
+            margin: 0;
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .header p {
+            color: #15ace8;
+            font-weight: 600;
+            margin-top: 5px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 12px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 3px solid #15ace8;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .card h2 {
+            font-size: 20px;
+            margin-top: 0;
+            color: #0b2233;
+        }
+        .card p {
+            font-size: 14px;
+            color: #5d5e5f;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #15ace8;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background-color: #0b2233;
+        }
+        .btn-outline {
+            background-color: transparent;
+            color: #0b2233;
+            border: 2px solid #0b2233;
+            margin-top: 10px;
+        }
+        .btn-outline:hover {
+            background-color: #0b2233;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <img src="IMPORTADORA-HORIZONTAL-1-1024x360.png" alt="Importadora MC">
+        <h1>Presentación Técnica: Marketing Digital B2B</h1>
+        <p>UX Iconix PCP · Estrategia Comercial</p>
+    </div>
+
+    <div class="container">
+        <div class="grid">
+            
+            <!-- Tarjeta 1 -->
+            <div class="card">
+                <h2>1. Estrategia y Visión</h2>
+                <p>Documento PDF con la justificación estratégica, el embudo de ventas, y las respuestas comerciales (Nivel Senior).</p>
+                <a href="1_Seccion_Teorica.pdf" target="_blank" class="btn">Abrir PDF</a>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div class="card">
+                <h2>2. Email Marketing</h2>
+                <p>Plantilla HTML responsiva para envío por correo. Optimizada para conversión B2B, incluye Teaser en Video y Dark Mode.</p>
+                <a href="2_Email_Marketing.html" class="btn">Ver Email</a>
+            </div>
+
+            <!-- Tarjeta 3 -->
+            <div class="card">
+                <h2>3. Banner Promocional</h2>
+                <p>Diseño gráfico Premium de alto impacto. Integración de propuesta de valor, íconos de beneficios y Brand Guidelines.</p>
+                <a href="3_Banner_Web.html" class="btn">Ver Banner</a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
